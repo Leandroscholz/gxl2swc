@@ -32,6 +32,9 @@ print('there are ',num_edges,' edges in this graph')
 for attribute in root.findall('.//node/attr'):
 	print(attribute.tag,attribute.attrib)
 # in this case, the attributes are 'nodeType' and 'position' 
+for attribute in root.findall('.//edge/attr'):
+	print(attribute.tag,attribute.attrib)
+# in this case, the attribute shown is ' radius' 
 
 # just for learning purposes (and sanity check) define 
 # two count variables and compute the number of nodes
@@ -45,7 +48,16 @@ for node in tree.findall(".//node/[@id]"):
 	node_id=node.get('id')
 	print(node_id)
 	node_count+=1
-	
+
+print('the position of the nodes are ')
+#print all node id's of the graph
+for nodes in tree.findall(".//node/attr/[@name=' position']"):
+	for node in nodes:
+		for position in node:
+			node_pos=float(nodes.find('.//tup/float').text)
+			print(node_pos)			
+
+
 print(node_count,' nodes')
 if node_count==num_nodes:
 	print('node_count and num_nodes match')
