@@ -6,7 +6,7 @@
 # with the following links
 
 # https://docs.python.org/2/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element.findall
-# 
+# https://stackabuse.com/reading-and-writing-xml-files-in-python/
 # Leandro Scholz 29.08.2018
 
 import xml.etree.ElementTree as ET
