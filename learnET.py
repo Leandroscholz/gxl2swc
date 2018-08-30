@@ -56,7 +56,7 @@ for edge in tree.findall(".//edge"):
 	start=edge.get('from')
 	end=edge.get('to')
 	print(start,' to',end)
-	edge_count=edge_count+1
+	edge_count+=1
 	
 print(edge_count,' edges')
 if edge_count==num_edges:
