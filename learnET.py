@@ -12,7 +12,7 @@
 import xml.etree.ElementTree as ET
 
 #read the file
-tree=ET.parse("tree_structure.gxl")
+tree=ET.parse('tree_structure.gxl')
 root=tree.getroot()
 
 # find all elements with name 'node' and 'edge'
@@ -44,19 +44,29 @@ edge_count=0
 
 print('the nodes of the graph are ')
 #print all node id's of the graph
-for node in tree.findall(".//node/[@id]"): 
+for node in tree.findall('.//node/[@id]'): 
 	node_id=node.get('id')
 	print(node_id)
 	node_count+=1
 
+# test to check how it is possible to get the values of the 
+# node positions
 print('the position of the nodes are ')
 #print all node id's of the graph
 for nodes in tree.findall(".//node/attr/[@name=' position']"):
 	for node in nodes:
+		print('node:')
 		for position in node:
 			node_pos=float(nodes.find('.//tup/float').text)
 			print(node_pos)			
 
+# now a similar test to check how to get the radius of the edge
+# for later, I will probably define the radius of a nodes as being the average radius of its edges
+print('the radius of the edges are')
+for edges in tree.findall(".//edge/attr/[@name=' radius']"):
+	for edge in nodes:
+		edge_rad=float(edges.find('.//float').text)
+		print(edge_rad)
 
 print(node_count,' nodes')
 if node_count==num_nodes:
