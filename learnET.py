@@ -10,6 +10,7 @@
 # Leandro Scholz 29.08.2018
 
 import xml.etree.ElementTree as ET
+import numpy as np
 
 #read the file
 tree=ET.parse('tree_structure.gxl')
@@ -27,6 +28,9 @@ num_edges=len(edges)
 
 print('there are ',num_nodes,' nodes in this graph')
 print('there are ',num_edges,' edges in this graph')
+
+swcArray=np.zeros((num_nodes,7))
+print(swcArray)
 
 #testing what attributes are inside the nodes in this graph
 for attribute in root.findall('.//node/attr'):
