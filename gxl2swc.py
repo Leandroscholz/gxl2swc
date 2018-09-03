@@ -15,7 +15,6 @@
 import xml.etree.ElementTree as ET
 import numpy as np
 
-
 def gxl2swc(swcPath):
         
     #read the file
@@ -53,7 +52,6 @@ def gxl2swc(swcPath):
     # now the positions are stored in swcArray properly
     print(swcArray)
    
-
     # It is now necessary to get the radius of the edges
     # and store on the nodes, since the swc format
     # does not store radii in edges, but in the nodes themselves
@@ -84,3 +82,5 @@ def gxl2swc(swcPath):
     print(swcArray)
 
     np.savetxt('test.swc', swcArray, delimiter=' ', newline='\n', fmt='%i %i %4.3f %4.3f %4.3f %4.3f %i')
+
+gxl2swc('D:\\Documentos\\Workspace\\gxl2swc\\tree_structure.gxl')
