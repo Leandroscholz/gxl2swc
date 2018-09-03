@@ -1,5 +1,5 @@
 """
-#python code to learn hot the xml.etree.ElementTree module works and deals with
+#python code to learn how the xml.etree.ElementTree module works and deals with
 #.xml and .gxl (graph exchange language) files. The intention is to read a
 #.gxl file and convert it into an .swc file of the graph. The .gxl file was generated
 #by VascuSynth, an algorithm and accompanying software for synthesizing vascular
@@ -72,7 +72,7 @@ for NODES in TREE.findall(".//node/attr/[@name=' position']"):
 
 # With this, it's possible to visualize the positions of all
 # nodes of the gxl file in the prompt. What I want is to
-# store each os these positions to the correct row in swcArray.
+# store each of these positions to the correct row in swcArray.
 # if node 2 position is [5,5,5] I want the second row of
 # swcArray columns 3,4 and 5 (see .swc file format specification)
 # to store this position
@@ -134,7 +134,7 @@ for node_id in range(0, NUM_NODES):
             parent_node = edge.get('from')
             parent_node = parent_node[1:]
             swcArray[node_id, 6] = parent_node
-#check if the radii were properly stores
+#check if the radii were properly stored
 print(swcArray)
 
 np.savetxt('test.swc', swcArray, delimiter=' ', newline='\n', fmt='%i %i %4.3f %4.3f %4.3f %4.3f %i')
