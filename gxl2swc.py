@@ -1,16 +1,16 @@
 """
-#python function gxl2swc to learn how the xml.etree.ElementTree module works and deals with
-#.xml and .gxl (graph exchange language) files. The intention is to read a
-#.gxl file and convert it into an .swc file of the graph. The .gxl file was generated
-#by VascuSynth, an algorithm and accompanying software for synthesizing vascular
-#or other tubular, tree-like structures.
-#http://vascusynth.cs.sfu.ca/Welcome.html
-#I learned most of the tools to code what's inside from the following links
-#https://docs.python.org/2/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element.findall
-#https://stackabuse.com/reading-and-writing-xml-files-in-python/
-#Leandro Scholz 29.08.2018
-#Information about the swc format
-#http://www.neuronland.org/NLMorphologyConverter/MorphologyFormats/SWC/Spec.html
+# python function gxl2swc to learn how the xml.etree.ElementTree module works and deals with
+#   .xml and .gxl (graph exchange language) files. The intention is to read a
+#   .gxl file and convert it into an .swc file of the graph. The .gxl file was generated
+#   by VascuSynth, an algorithm and accompanying software for synthesizing vascular
+#   or other tubular, tree-like structures.
+# http://vascusynth.cs.sfu.ca/Welcome.html
+# I learned most of the tools to code what's inside from the following links
+#   https://docs.python.org/2/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element.findall
+#   https://stackabuse.com/reading-and-writing-xml-files-in-python/
+# Leandro Scholz 29.08.2018
+# Information about the swc format
+#   http://www.neuronland.org/NLMorphologyConverter/MorphologyFormats/SWC/Spec.html
 """
 import xml.etree.ElementTree as ET
 import numpy as np
@@ -83,4 +83,13 @@ def gxl2swc(swcPath):
 
     np.savetxt('test.swc', swcArray, delimiter=' ', newline='\n', fmt='%i %i %4.3f %4.3f %4.3f %4.3f %i')
 
-gxl2swc('D:\\Documentos\\Workspace\\gxl2swc\\tree_structure.gxl')
+if __name__ == '__main__'
+    import argparse
+
+    # argument parser
+    ap  = argparse.ArgumentParser()
+    ap.add_argument("-f", "--file_path", required = True, help = "Path to image file")
+    args = vars(ap.parse_args())
+
+    # run gxl2swc
+    gxl2swc(args['file_path'])
